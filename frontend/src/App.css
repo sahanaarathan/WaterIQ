@@ -1,0 +1,741 @@
+/* =========================================================
+   WATERIQ DASHBOARD
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #f4f7fb;
+  color: #0f172a;
+}
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  background: #f4f7fb;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  background: #0b1220;
+  color: white;
+
+  padding: 28px 18px;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0891b2, #0284c7);
+  color: white;
+}
+
+.logo-text {
+  color: white !important;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.logo-subtitle {
+  color: #94a3b8 !important;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.nav-item {
+  width: 100%;
+  border: none;
+
+  background: transparent;
+  color: #94a3b8 !important;
+
+  padding: 13px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: white !important;
+}
+
+.nav-item.active {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8 !important;
+  font-weight: 700;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  padding: 32px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #0f172a !important;
+
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.header p {
+  margin-top: 8px;
+  color: #64748b !important;
+
+  font-size: 14px;
+}
+
+.header-status {
+  padding: 10px 15px;
+
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  color: #334155 !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   DASHBOARD CARDS
+   ========================================================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  margin-bottom: 22px;
+}
+
+.card {
+  background: #ffffff !important;
+
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+
+  padding: 22px;
+
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+
+  color: #0f172a !important;
+}
+
+/*
+   IMPORTANT FIX
+
+   Force ALL text inside cards to a dark visible color.
+   Your old CSS was making the numbers almost white.
+*/
+
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.card p,
+.card span,
+.card strong,
+.card div {
+  color: #0f172a;
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-bottom: 15px;
+}
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: #e6f6fb;
+  color: #0891b2 !important;
+}
+
+.card-icon svg {
+  color: #0891b2 !important;
+}
+
+.card-title {
+  color: #64748b !important;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   CARD VALUES
+   ========================================================= */
+
+.card-value {
+  display: block;
+
+  color: #0f172a !important;
+
+  font-size: 31px !important;
+  font-weight: 800 !important;
+
+  line-height: 1.2;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.card-value-small {
+  color: #0f172a !important;
+  font-size: 25px !important;
+}
+
+/* Handles values if App.tsx uses h2/h3 instead of card-value */
+
+.card h2,
+.card h3 {
+  color: #0f172a !important;
+  opacity: 1 !important;
+}
+
+.card-unit {
+  color: #64748b !important;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.card-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 9px;
+
+  color: #059669 !important;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  opacity: 1 !important;
+}
+
+.card-status span {
+  color: inherit !important;
+}
+
+.card-status.warning {
+  color: #d97706 !important;
+}
+
+.card-status.critical {
+  color: #dc2626 !important;
+}
+
+/* =========================================================
+   SAFETY / QUALITY / LEAK SPECIFIC
+   ========================================================= */
+
+/* SAFE */
+
+.safe {
+  color: #059669 !important;
+  opacity: 1 !important;
+}
+
+/* WARNING */
+
+.warning {
+  color: #d97706 !important;
+  opacity: 1 !important;
+}
+
+/* CRITICAL */
+
+.critical {
+  color: #dc2626 !important;
+  opacity: 1 !important;
+}
+
+/* NORMAL */
+
+.normal {
+  color: #2563eb !important;
+  opacity: 1 !important;
+}
+
+/* =========================================================
+   SENSOR PANEL
+   ========================================================= */
+
+.sensor-panel {
+  background: #ffffff;
+
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.sensor {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sensor label {
+  color: #475569 !important;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sensor input {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  border: 1px solid #dbe3ec;
+  border-radius: 9px;
+
+  background: #f8fafc;
+  color: #0f172a !important;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  outline: none;
+}
+
+.sensor input:focus {
+  background: white;
+  border-color: #0891b2;
+
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.12);
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.analysis-button {
+  width: 100%;
+
+  margin-top: 20px;
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #0284c7, #0891b2);
+
+  color: white !important;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
+
+  transition: 0.2s ease;
+}
+
+.analysis-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 25px rgba(2, 132, 199, 0.28);
+}
+
+.analysis-button:disabled {
+  opacity: 0.6;
+}
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.section {
+  margin-bottom: 22px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.section-title {
+  margin: 0;
+
+  color: #0f172a !important;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.section-subtitle {
+  color: #64748b !important;
+  font-size: 12px;
+}
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.chart-container {
+  background: #ffffff;
+
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 310px;
+  margin-top: 15px;
+}
+
+/* =========================================================
+   RESULT CARD
+   ========================================================= */
+
+.result-card {
+  background: #ffffff;
+
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+
+  color: #0f172a !important;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+
+  margin-top: 17px;
+}
+
+.result-item {
+  padding: 17px;
+
+  background: #f8fafc;
+
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+
+  color: #0f172a !important;
+}
+
+.result-label {
+  color: #64748b !important;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  margin-bottom: 8px;
+}
+
+.result-value {
+  color: #0f172a !important;
+
+  font-size: 21px;
+  font-weight: 800;
+
+  opacity: 1 !important;
+}
+
+.result-value.safe {
+  color: #059669 !important;
+}
+
+.result-value.warning {
+  color: #d97706 !important;
+}
+
+.result-value.critical {
+  color: #dc2626 !important;
+}
+
+.result-value.leak {
+  color: #dc2626 !important;
+}
+
+/* =========================================================
+   AI STATUS
+   ========================================================= */
+
+.ai-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 16px;
+
+  border-radius: 11px;
+
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+
+  color: #1d4ed8 !important;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.ai-status * {
+  color: #1d4ed8 !important;
+}
+
+.ai-status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: #2563eb !important;
+
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px rgba(37, 99, 235, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+/* =========================================================
+   TWO COLUMN
+   ========================================================= */
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 15px;
+
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.alert-title {
+  color: #0f172a !important;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.alert-description {
+  color: #64748b !important;
+
+  font-size: 12px;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.alert.warning {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+}
+
+.alert.critical {
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+}
+
+.alert.success {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sensor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 70px;
+  }
+
+  .logo-text,
+  .logo-subtitle,
+  .nav-item span {
+    display: none;
+  }
+
+  .main {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+    padding: 22px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sensor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+}
