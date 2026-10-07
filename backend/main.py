@@ -28,12 +28,14 @@ app.add_middleware(
 # LOAD MODELS
 # =========================================================
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 quality_model = joblib.load(
-    "models/water_quality_model.pkl"
+    os.path.join(BASE_DIR, "models", "water_quality_model.pkl")
 )
 
 leak_model = joblib.load(
-    "models/leak_detection_model.pkl"
+    os.path.join(BASE_DIR, "models", "leak_detection_model.pkl")
 )
 
 
